@@ -1,29 +1,39 @@
+// Importing the models for User, Post, and Comment
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
 
-User.hasMany(Post, {
-  foreignKey: 'user_id',
+// Defining associations between models using Sequelize associations
+
+// Users have many Posts
+User.hasMany(Post, { // Associates 'User' with multiple 'Post' instances, indicating a one-to-many relationship
+  foreignKey: 'user_id', // Foreign key in the 'Posts' model referring to 'Users' model
 });
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id',
+// Posts belong to a single User
+Post.belongsTo(User, { // Associates 'Post' with a single 'User', indicating a many-to-one relationship.
+  foreignKey: 'user_id', // Foreign key in the 'Posts' model referring to 'Users' model
 });
 
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
+// Users have many Comments
+User.hasMany(Comment, { // Associates 'User' with multiple 'Comment' instances, indicating a one-to-many relationship
+  foreignKey: 'user_id', // Foreign key in the 'Comments' model referring to 'Users' model
 });
 
-Comment.belongsTo(User, {
-  foreignKey: 'user_id',
+// Comments belong to a single User
+Comment.belongsTo(User, { // Associates 'Comment' with a single 'User', indicating a many-to-one relationship.
+  foreignKey: 'user_id', // Foreign key in the 'Comments' model referring to 'Users' model
 });
 
-Post.hasMany(Comment, {
-  foreignKey: 'post_id',
+// Posts have many Comments
+Post.hasMany(Comment, { // Associates 'Post' with multiple 'Comment' instances, indicating a one-to-many relationship
+  foreignKey: 'post_id', // Foreign key in the 'Comments' model referring to 'Posts' model
 });
 
-Comment.belongsTo(Post, {
-  foreignKey: 'post_id',
+// Comments belong to a single Post
+Comment.belongsTo(Post, { // Associates 'Comment' with a single 'Post', indicating a many-to-one relationship.
+  foreignKey: 'post_id', // Foreign key in the 'Comments' model referring to 'Posts' model
 });
 
+// Exporting the models for use in other parts of the application
 module.exports = { User, Post, Comment };
