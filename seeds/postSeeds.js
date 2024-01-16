@@ -1,5 +1,7 @@
+// Import the Post model from the specified path
 const { Post } = require('../models');
 
+// Define an array of post data, each object representing a post with a title, content, and user ID
 const postData = [
   {
     title: 'Introduction to Machine Learning',
@@ -23,6 +25,8 @@ const postData = [
   },
 ];
 
+// Define a function called seedPosts, which uses the bulkCreate method of the Post model to insert multiple posts into the database
 const seedPosts = () => Post.bulkCreate(postData);
 
+// Export the seedPosts function to be used in the database seed script: 'seed.js'
 module.exports = seedPosts;
