@@ -28,4 +28,12 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// Render the form to create a new post
+router.get('/new', withAuth, (req, res) => {
+  res.render('new-post', {
+    logged_in: req.session.logged_in,
+  });
+});
+
+
 module.exports = router;
