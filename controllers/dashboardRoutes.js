@@ -35,5 +35,21 @@ router.get('/new', withAuth, (req, res) => {
   });
 });
 
+// Handle the creation of a new post
+router.post('/new', withAuth, async (req, res) => {
+  try {
+    const { title, content } = req.body;
+
+    const newPost = await Post.create({
+      title,
+      content,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
