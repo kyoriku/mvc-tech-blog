@@ -18,4 +18,25 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Delete a comment on a post
+router.delete('/:id', withAuth, async (req, res) => {
+  const commentId = parseInt(req.params.id);
+
+  try {
+    const deletedComment = await Comment.findByPk(commentId);
+
+    if (!deletedComment) {
+      res.status(404).json({ error: 'Comment not found' });
+      return;
+    }
+
+    await deletedComment.destroy();
+
+    res.status(200).json({ message: 'Comment deleted successfully!' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
