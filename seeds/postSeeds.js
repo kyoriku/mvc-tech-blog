@@ -23,6 +23,31 @@ const postData = [
     content: 'A comprehensive guide to using Python libraries for data analysis and visualization.',
     user_id: 4,
   },
+  {
+    title: 'Getting Started with React.js',
+    content: 'Learn the fundamentals of React.js and build your first React application.',
+    user_id: 1,
+  },
+  {
+    title: 'Cybersecurity Basics: Protecting Your Online Presence',
+    content: 'Explore essential cybersecurity practices to keep your online activities secure.',
+    user_id: 2,
+  },
+  {
+    title: 'The Future of Artificial Intelligence in Healthcare',
+    content: 'Discover how AI is transforming the healthcare industry and improving patient care.',
+    user_id: 3,
+  },
+  {
+    title: 'Mastering CSS Grid Layout',
+    content: 'A deep dive into CSS Grid Layout to create responsive and flexible web layouts.',
+    user_id: 4,
+  },
+  {
+    title: 'Introduction to Docker and Containerization',
+    content: 'Get started with Docker and containerization to streamline your development workflow.',
+    user_id: 1,
+  },
 ];
 
 // Define a function called seedPosts, which uses the bulkCreate method of the Post model to insert multiple posts into the database
