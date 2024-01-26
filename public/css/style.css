@@ -1,0 +1,17 @@
+body {
+  background-image: url("../images/tech3.jpg");
+}
+
+h1 {
+  color: #f9fbfd;
+  margin-bottom: 24px;
+}
+
+.custom-card-body {
+  height: 150px;
+}
+
+.custom-card-body:hover {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+}
