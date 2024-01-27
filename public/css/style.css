@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   background-image: url("../images/tech3.jpg");
   background-size: cover;
@@ -47,4 +51,10 @@ input {
 
 .row-fluid {
   flex-wrap: wrap;
+}
+
+/* Footer styling */
+.footer {
+  padding: 0px;
+  margin: 2px;
 }
