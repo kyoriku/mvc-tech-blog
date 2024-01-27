@@ -3,7 +3,7 @@
     <div class="col-md-8 offset-md-2">
       <!-- Displaying the post title, contents, post creator’s username, and date created-->
       <h1>{{title}}</h1>
-      <div class="card custom-card-light">
+      <div class="card post-card-light">
         <p>{{content}}</p>
         <p class="text-muted">Posted by {{user.username}} on {{formatDateTime createdAt}}</p>
       </div>
@@ -12,7 +12,7 @@
       <form id="comment-form">
         <div class="form-group">
           <label for="comment">Leave a Comment:</label>
-          <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+          <textarea class="form-control bg-light" id="comment" name="comment" rows="3" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit Comment</button>
       </form>
@@ -24,7 +24,7 @@
       <h2 class="mt-4">Comments</h2>
       <ul class="list-unstyled" id="comments-list">
         {{#each comments}}
-        <li class="card custom-card-light">
+        <li class="card comment-card-light">
           <p>{{comment_text}}</p>
           <p class="text-muted">By {{user.username}} on {{formatDateTime this.createdAt}}</p>
         </li>
@@ -33,3 +33,4 @@
     </div>
   </div>
 </div>
+<script src="/js/comment.js"></script>

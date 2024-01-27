@@ -12,6 +12,10 @@ h1, h2 {
   margin-bottom: 24px;
 }
 
+label {
+  color: #f8f9fa;
+}
+
 /* Posts styling */
 .custom-card-body {
   height: 150px;
@@ -23,11 +27,27 @@ h1, h2 {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.post-card-light {
+  background-color: #f8f9fa;
+  padding: 1.25em 1.25em 0.25em 1.25em;
+  border-radius: 25px;
+  color: #000000;
+  margin-bottom: 1.5em;
+}
+
+.comment-card-light {
+  background-color: #f8f9fa;
+  padding: 1.25em 1.25em 0.25em 1.25em;
+  border-radius: 25px;
+  color: #000000;
+  margin-bottom: 1em;
+}
+
 /* Login page styling */
 .login-main {
   display: flex;
   justify-content: center;
-  height: 75vh;
+  height: 80vh;
 }
 
 .login {
@@ -46,7 +66,11 @@ input {
   background-color: #f8f9fa;
   border: none;
   padding: 0.75vh;
-  width: 250px;
+  width: 350px;
+}
+
+.form-group-last {
+  margin: 0;
 }
 
 .row-fluid {
@@ -57,24 +81,4 @@ input {
 .footer {
   padding: 0px;
   margin: 2px;
-}
-
-.custom-card-light {
-  background-color: #f8f9fa;
-  padding: 1.25em 1.25em 0.25em 1.25em;
-  border-radius: 25px;
-  color: #000000;
-  margin-bottom: 1.5em;
-}
-
-.custom-card-dark {
-  background-color: #000000;
-  padding: 1.25em 1.25em 0.25em 1.25em;
-  border-radius: 25px;
-  color: #f8f9fa;
-  margin-bottom: 1.5em;
-}
-
-label {
-  color: #f8f9fa;
 }
