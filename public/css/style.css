@@ -5,10 +5,10 @@
 body {
   background-image: url("../images/tech3.jpg");
   background-size: cover;
+  background-attachment: fixed;
 }
 
 h1, h2 {
-  color: #f8f9fa;
   margin-bottom: 24px;
 }
 
@@ -41,6 +41,14 @@ label {
   border-radius: 25px;
   color: #000000;
   margin-bottom: 1em;
+}
+
+.dashboard-card-light {
+  background-color: #f8f9fa;
+  padding: 0.25em 0.25em 0.25em 0.25em;
+  border-radius: 25px;
+  color: #000000;
+  margin-bottom: 1.5em;
 }
 
 /* Login page styling */
