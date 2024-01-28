@@ -2,7 +2,7 @@
 const getPostIdFromUrl = () => {
   // Split the URL by "/" to get an array of URL parts
   const urlParts = window.location.toString().split("/");
-  // Return the last part of the URL, which is assumed to be the post ID
+  // Return the last part of the URL, which is the post ID
   return urlParts[urlParts.length - 1];
 };
 
