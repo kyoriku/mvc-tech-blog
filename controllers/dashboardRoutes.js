@@ -52,4 +52,24 @@ router.post('/new-post', withAuth, async (req, res) => {
   }
 });
 
+// Render the edit form for a specific post
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+
+    // Assuming you have an 'edit-post' handlebars template
+    res.render('edit-post', {
+      post: postData.get({ plain: true }),
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
