@@ -27,6 +27,7 @@ label {
 /* Posts styling */
 .custom-card-body {
   height: 150px;
+  overflow: auto;
 }
 
 .custom-card-body:hover {
