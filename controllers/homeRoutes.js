@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     // res.status(200).json(posts); // For Insomnia testing purposes
 
-    res.render('homepage', { 
-      posts, 
+    res.render('homepage', {
+      posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -25,8 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.get("/post/:id", withAuth, async (req, res) => { // Temporarily bypassing withAuth for testing
-  router.get('/post/:id', async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -37,8 +36,11 @@ router.get('/', async (req, res) => {
         {
           model: Comment,
           include: [
-            { model: User, 
-              attributes: ['username'] }],
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ],
         },
       ],
     });

@@ -1,7 +1,7 @@
 <div class="login-main row-fluid my-5">
   <div class="login col-lg-7 text-center">
     <h2 class="text-light">Login</h2>
-    <form class="form login-form">
+    <form class="form login-form" id="loginForm">
       <div class="form-group">
         <input class="form-input" type="text" id="email-login" placeholder="Email" />
       </div>
@@ -10,12 +10,16 @@
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">Login</button>
+        <div class="pt-3 d-flex align-tiems-center justify-content-center">
+          <div class="spinner" id="login-spinner"></div>
+        </div>
+        <div class="error-message" id="login-error-message"></div>
       </div>
     </form>
   </div>
   <div class="signup col-lg-7 text-center">
     <h2 class="text-light">Sign Up</h2>
-    <form class="form signup-form">
+    <form class="form signup-form" id="signupForm">
       <div class="form-group">
         <input class="form-input" type="text" id="name-signup" placeholder="Name" />
       </div>
@@ -27,6 +31,10 @@
       </div>
       <div class="form-group form-group-last">
         <button class="btn btn-primary" type="submit">Sign Up</button>
+        <div class="pt-3 d-flex align-tiems-center justify-content-center">
+          <div class="spinner" id="signup-spinner"></div>
+        </div>
+        <div class="error-message" id="signup-error-message"></div>
       </div>
     </form>
   </div>

@@ -6,13 +6,13 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
-      where: { 
-        user_id: req.session.user_id 
+      where: {
+        user_id: req.session.user_id
       },
       include: [
-        { 
-          model: User, 
-          attributes: ['username'] 
+        {
+          model: User,
+          attributes: ['username']
         }
       ],
     });
