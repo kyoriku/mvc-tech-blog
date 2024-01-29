@@ -1,16 +1,23 @@
 <div class="container mt-4 col-md-8">
   <h1 class="text-light">Dashboard</h1>
+
+  <!-- Add new post button -->
   <a href="/dashboard/new-post" class="btn btn-success mb-4 col-md-6">Add New Post</a>
   {{#each posts}}
+
+  <!-- Posts -->
   <div class="card mb-3 dashboard-card-light">
     <div class="card-body">
       <h2 class="card-title"><a href="/post/{{id}}">{{title}}</a></h2>
       <p class="card-text">{{content}}</p>
+
+      <!-- Edit post button -->
       <a href="/dashboard/edit/{{id}}" class="btn btn-primary">Edit</a>
-      <form action="/dashboard/delete/{{id}}" method="post" style="display: inline;">
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
+
+      <!-- Delete post button -->
+      <button type="button" class="btn btn-danger delete-post-button" data-post-id="{{id}}">Delete</button>
     </div>
   </div>
   {{/each}}
 </div>
+<script src="/js/delete-post.js"></script>
