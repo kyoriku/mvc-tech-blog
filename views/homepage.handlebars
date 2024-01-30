@@ -3,7 +3,7 @@
 <div class="row">
   {{#each posts}}
   <div class="col-md-4 mb-4">
-    <a href="/post/{{id}}" class="card-link">
+    <a href="/post/{{id}}" class="card-link text-decoration-none">
       <div class="card custom-card">
         <div class="card-body custom-card-body">
           <h5 class="card-title text-primary">{{title}}</h5>
@@ -15,5 +15,5 @@
   {{/each}}
 </div>
 {{else}}
-<p>No posts available.</p>
+<p class="text-light">No posts available.</p>
 {{/if}}
