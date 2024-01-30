@@ -53,8 +53,29 @@ Tech Blog CMS is a content management system designed for developers to publish 
 ### Demo Video
 
 ### Screenshots
-- Homepage:
+  - Homepage:
+
 ![tech-blog-homepage](public/images/tech-blog-homepage.png)
+
+  - Login:
+
+![tech-blog-login](public/images/tech-blog-login.png)
+
+  - Blog post:
+
+![tech-blog-blog-post](public/images/tech-blog-post.png)
+
+  - Dashboard:
+
+![tech-blog-dashboard](public/images/tech-blog-dashboard.png)
+
+  - Add new blog post:
+
+![tech-blog-homepage](public/images/tech-blog-new-post.png)
+
+  - Edit blog post:
+
+![tech-blog-homepage](public/images/tech-blog-edit-post.png)
 
 ## Deployment
 The Tech Blog CMS is deployed on Heroku. You can access the live application [here](https://techblogcms-1e5c1470e624.herokuapp.com/).
