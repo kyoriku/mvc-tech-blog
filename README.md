@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-The Tech Blog CMS is a content management system designed for developers to publish articles, blog posts, and share their thoughts and opinions on various technical concepts. Following the MVC paradigm, this application is built from scratch, utilizing Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. Whether you're a seasoned developer or just starting, this CMS-style blog site provides a platform for sharing and learning.
+Tech Blog CMS is a content management system designed for developers to publish articles, blog posts, and share their thoughts and opinions on various technical concepts. Following the MVC paradigm, this application is built from scratch, utilizing [Handlebars.js](https://handlebarsjs.com/) as the templating language, [Sequelize](https://sequelize.org/) as the ORM, and the [express-session](https://www.npmjs.com/package/express-session) npm package for authentication. Whether you're a seasoned developer or just starting, this CMS-style blog site provides a platform for sharing and learning.
 
 ## Table of Contents
 - [Installation](#installation)

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// Route for homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -25,6 +26,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Route for individual posts page
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -56,6 +58,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route for user login
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
