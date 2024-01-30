@@ -24,7 +24,7 @@ const sess = {
   cookie: {
     maxAge: 900000, // Session duration in milliseconds (900,000 ms = 15 minutes)
     httpOnly: true, // Cookies are not accessible through client-side JavaScript
-    secure: true, // Cookies are only sent over HTTPS, enhancing security
+    secure: false, // Cookies are only sent over HTTPS, enhancing security
     sameSite: 'strict', // Cookies are only sent in a first-party context
   },
   resave: false, // Do not save sessions for every request, only save if the session data changes
