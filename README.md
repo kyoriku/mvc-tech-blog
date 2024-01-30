@@ -57,7 +57,7 @@ Tech Blog CMS is a content management system designed for developers to publish 
 ![tech-blog-homepage](public/images/tech-blog-homepage.png)
 
 ## Deployment
-The Tech Blog CMS is deployed on Heroku. You can access the live application [here]().
+The Tech Blog CMS is deployed on Heroku. You can access the live application [here](https://techblogcms-1e5c1470e624.herokuapp.com/).
 
 ## License
 This application is covered by the [MIT](https://opensource.org/licenses/MIT) license.
