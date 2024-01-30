@@ -4,10 +4,10 @@
   {{#each posts}}
   <div class="col-md-4 mb-4">
     <a href="/post/{{id}}" class="card-link">
-      <div class="card">
+      <div class="card custom-card">
         <div class="card-body custom-card-body">
-          <h5 class="card-title">{{title}}</h5>
-          <p class="card-text text-muted">Created on: {{formatDate createdAt}}</p>
+          <h5 class="card-title text-primary">{{title}}</h5>
+          <p class="card-text text-light">Created on: {{formatDate createdAt}}</p>
         </div>
       </div>
     </a>

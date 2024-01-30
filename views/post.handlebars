@@ -1,12 +1,12 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-10 offset-md-1">
 
       <!-- Displaying the post title, contents, post creator’s username, and date created-->
       <h1 class="text-light">{{title}}</h1>
       <div class="card post-card-light">
         <p>{{content}}</p>
-        <p class="text-muted">Posted by {{user.username}} on {{formatDateTime createdAt}}</p>
+        <p class="text-muted-custom">Posted by {{user.username}} on {{formatDateTime createdAt}}</p>
       </div>
 
       <!-- Comment Form -->
@@ -30,7 +30,7 @@
         {{#each comments}}
         <li class="card comment-card-light">
           <p>{{comment_text}}</p>
-          <p class="text-muted">By {{user.username}} on {{formatDateTime this.createdAt}}</p>
+          <p class="text-muted-custom">By {{user.username}} on {{formatDateTime this.createdAt}}</p>
         </li>
         {{/each}}
       </ul>

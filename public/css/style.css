@@ -1,5 +1,6 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  /* color: #f8f9fa; */
 }
 
 body {
@@ -28,35 +29,44 @@ label {
 .custom-card-body {
   height: 150px;
   overflow: auto;
+  background-color: #343a40;
+}
+
+.custom-card {
+  border: 1px solid #495057;
 }
 
 .custom-card-body:hover {
-  background-color: #e9ecef; 
+  background-color: #495057; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .post-card-light {
-  background-color: #f8f9fa;
+  background-color: #343a40;
   padding: 1.25em 1.25em 0.25em 1.25em;
   border-radius: 25px;
-  color: #000000;
+  color: #f8f9fa;;
   margin-bottom: 1.5em;
 }
 
 .comment-card-light {
-  background-color: #f8f9fa;
+  background-color: #343a40;
   padding: 1.25em 1.25em 0.25em 1.25em;
   border-radius: 25px;
-  color: #000000;
+  color: #f8f9fa;;
   margin-bottom: 1em;
 }
 
 .dashboard-card-light {
-  background-color: #f8f9fa;
+  background-color: #343a40;
   padding: 0.25em 0.25em 0.25em 0.25em;
   border-radius: 25px;
-  color: #000000;
+  color: #f8f9fa;;
+}
+
+.text-muted-custom {
+  color: #bdc1c8;
 }
 
 /* Login page styling */
@@ -101,6 +111,7 @@ input {
   position: relative;
   bottom: 0;
   width: 100%;
+  color: #f8f9fa;
 }
 
 /* Loading spinner styling */
