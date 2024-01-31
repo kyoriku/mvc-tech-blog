@@ -20,9 +20,19 @@ const commentData = [
   },
   {
     comment_text: 'Informative guide! How do you handle large datasets in data science?',
-    user_id: 1,
+    user_id: 4,
     post_id: 4,
   },
+  {
+    comment_text: 'Crucial cybersecurity tips! Learn to recognize phishing, use multi-factor authentication, and secure your online presence. Essential for individuals and organizations.',
+    user_id: 4,
+    post_id: 5,
+  },
+  {
+    comment_text: 'Awesome guide for mastering CSS Grid Layout! Ideal for web designers and developers, it covers everything from containers to sophisticated layouts, keeping you on top of modern design trends.',
+    user_id: 2,
+    post_id: 6,
+  }
 ];
 
 // Define a function called seedComments, which uses the bulkCreate method of the Comment model to insert multiple comments into the database
