@@ -5,7 +5,7 @@ const { Post } = require('../models');
 const postData = [
   {
     title: 'Introduction to Machine Learning',
-    content: "Dive into web development and discover essential best practices for clean, maintainable, and efficient code. This exploration guides you through key principles, from code structuring and version control to responsive design and optimizing performance. Covering a spectrum of best practices for beginners and seasoned developers alike, learn to leverage modern development tools, adopt coding standards, and implement testing strategies. Enhance code quality, streamline collaboration, and elevate your web development skills.",
+    content: "Delve into the fascinating world of machine learning and gain insights into essential concepts and techniques. This exploration guides you through key principles, from understanding algorithms and data preprocessing to building and evaluating models. Covering a spectrum of best practices for beginners and seasoned machine learning enthusiasts alike, learn to leverage modern tools, adopt coding standards, and implement testing strategies. Enhance your understanding of machine learning, streamline collaboration, and elevate your skills in this rapidly evolving field.",
     user_id: 1,
   },
   {

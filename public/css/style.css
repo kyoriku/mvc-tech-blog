@@ -41,7 +41,7 @@ h1, h2 {
 /* Individual posts page */
 .post-card {
   background-color: #343a40;
-  border-radius: 25px;
+  border-radius: 0;
   border: 1px solid #495057;
   color: #f8f9fa;
   padding: 1.25em;
@@ -50,7 +50,7 @@ h1, h2 {
 
 .comment-card {
   background-color: #343a40;
-  border-radius: 25px;
+  border-radius: 0;
   border: 1px solid #495057;
   color: #f8f9fa;
   padding: 1.25em;  
@@ -78,7 +78,7 @@ h1, h2 {
 .dashboard-card {
   background-color: #343a40;
   padding: 0.25em 0.25em 0.25em 0.25em;
-  border-radius: 25px;
+  border-radius: 0;
   color: #f8f9fa;
   border: 1px solid #495057;
 }
