@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         const errorMessage = await response.text();
         displayErrorMessage(errorMessageElement, errorMessage);
@@ -50,7 +50,7 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/');
       } else {
         const errorMessage = await response.text();
         displayErrorMessage(errorMessageElement, errorMessage);

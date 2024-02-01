@@ -21,10 +21,11 @@
       {{else}}
 
       <!-- Displayed when the user is not logged in -->
-      <p class="text-light mt-4">Please <a href="/login" class="text-light">log in</a> to leave a comment.</p>
+      <p class="text-light mt-4">Please <a href="/login" class="text-primary">log in</a> to leave a comment.</p>
       {{/if}}
 
       <!-- Displaying the comments, the comment creator’s username, and the date created -->
+      {{#if comments}}
       <h2 class="mt-4 text-light">Comments</h2>
       <ul class="list-unstyled" id="comments-list">
         {{#each comments}}
@@ -34,6 +35,7 @@
         </li>
         {{/each}}
       </ul>
+      {{/if}}
     </div>
   </div>
 </div>

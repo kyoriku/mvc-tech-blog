@@ -38,7 +38,9 @@ const commentFormHandler = async (event) => {
   }
 };
 
-// Add an event listener to the comment form
-document
-  .querySelector('#comment-form')
-  .addEventListener('submit', commentFormHandler);
+// Check if the comment form exists in the DOM
+if (document.querySelector('#comment-form')) {
+  // Add an event listener to the comment form to trigger the commentFormHandler function
+  document.querySelector('#comment-form').addEventListener('submit', commentFormHandler);
+}
+
