@@ -4,7 +4,13 @@ const newPostFormHandler = async (event) => {
 
   // Collect values from the new post form
   const title = document.querySelector('#title').value.trim();
-  const content = document.querySelector('#content').value.trim();
+  let content = document.querySelector('#content').value.trim();
+
+  // Regular expression to match URLs in the content
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  // Replace URLs in the content with hyperlinks
+  content = content.replace(urlRegex, '<a href="$1" target="_blank">$1</a>');
 
   // Check if both title and content have values
   if (title && content) {
