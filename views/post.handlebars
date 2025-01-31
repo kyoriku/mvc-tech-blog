@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 ">
   <div class="row">
     <div class="col-md-10 offset-md-1">
 
@@ -6,7 +6,7 @@
       <h1 class="text-light">{{title}}</h1>
       <div class="card post-card">
         <p class="card-text">{{{content}}}</p>
-        <p class="card-text text-muted-custom">Posted by {{user.username}} on {{formatDateTime createdAt}}</p>
+        <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate createdAt}}</p>
       </div>
 
       <!-- Comment Form -->
@@ -29,9 +29,9 @@
       <h2 class="mt-4 text-light">Comments</h2>
       <ul class="list-unstyled" id="comments-list">
         {{#each comments}}
-        <li class="card comment-card mt-3">
+        <li class="card comment-card">
           <p class="card-text">{{comment_text}}</p>
-          <p class="card-text text-muted-custom">By {{user.username}} on {{formatDateTime this.createdAt}}</p>
+          <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate this.createdAt}}</p>
         </li>
         {{/each}}
       </ul>
