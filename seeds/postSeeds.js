@@ -4,36 +4,42 @@ const { Post } = require('../models');
 // Define an array of post data, each object representing a post with a title, content, and user ID
 const postData = [
   {
-    title: 'Introduction to Machine Learning',
-    content: "Delve into the fascinating world of machine learning and gain insights into essential concepts and techniques. This exploration guides you through key principles, from understanding algorithms and data preprocessing to building and evaluating models. Covering a spectrum of best practices for beginners and seasoned machine learning enthusiasts alike, learn to leverage modern tools, adopt coding standards, and implement testing strategies. Enhance your understanding of machine learning, streamline collaboration, and elevate your skills in this rapidly evolving field.",
+    title: 'My Journey Learning Machine Learning: From Zero to First Model',
+    content: "Just wrapped up my first month of diving into ML using the Boston Housing dataset. After learning Python basics and data manipulation with pandas, I built my first RandomForestRegressor model achieving an R-squared score of 0.84. The most fascinating discovery was that number of rooms had a stronger correlation with price (0.7) than distance to employment centers (0.5). Key lessons learned: watch out for multicollinearity, implement proper feature scaling (improved MSE from 21.6 to 15.3), and always use cross-validation. Planning to try gradient boosting next - what was your first ML project like?",
     user_id: 1,
+    createdAt: new Date('2024-01-31T10:15:00'),
+    updatedAt: new Date('2024-01-31T10:15:00')
   },
   {
-    title: 'Building a RESTful API with Node.js and Express',
-    content: "Embark on mastering the creation of robust, scalable RESTful APIs using Node.js and Express. Walk through setting up a powerful API, leveraging Node.js's asynchronous and event-driven architecture with Express. Learn to handle HTTP requests, design efficient endpoints, and implement CRUD operations. Cover best practices for code organization, error handling, and security, ensuring your API meets industry standards. Equip yourself with the skills to develop RESTful APIs, forming the backbone of modern web applications.",
+    title: 'Express.js API Tips I Wish I Knew Earlier',
+    content: "Just improved our e-commerce platform's API with some game-changing optimizations. We implemented rate limiting with Redis (100 requests/hour for public, 1000/hour for authenticated users), reducing spam by 95%. Added centralized error handling with correlation IDs and proper logging. The big wins came from response compression (70% smaller payloads), Redis caching (40% less DB load), and PM2 cluster mode (2.5x better throughput). Result? API response time dropped from 250ms to 85ms. Next up is GraphQL - anyone interested in the implementation details?",
     user_id: 2,
+    createdAt: new Date('2024-02-04T15:30:00'),
+    updatedAt: new Date('2024-02-04T15:30:00')
   },
   {
-    title: 'Web Development Best Practices',
-    content: "Dive into web development and discover essential best practices for clean, maintainable, and efficient code. This exploration guides you through key principles, from code structuring and version control to responsive design and optimizing performance. Covering a spectrum of best practices for beginners and seasoned developers alike, learn to leverage modern development tools, adopt coding standards, and implement testing strategies. Enhance code quality, streamline collaboration, and elevate your web development skills.",
+    title: 'How We Reduced Our React Bundle Size by 60%',
+    content: "Finally tackled our SaaS dashboard's bundle size issues. Initial state: 2.8MB bundle with 3.2s First Paint. Main culprits were moment.js (472KB) and our charting library (685KB). Implemented code splitting with React.lazy(), switched to date-fns and Recharts, and properly configured tree shaking. New bundle is 1.1MB, First Paint down to 1.1s, and Lighthouse score up from 72 to 94. Key takeaway: analyze your bundle first and don't be afraid to replace popular packages with lighter alternatives. Anyone tried module federation for micro-frontends?",
     user_id: 3,
+    createdAt: new Date('2024-02-08T09:45:00'),
+    updatedAt: new Date('2024-02-08T09:45:00')
   },
   {
-    title: 'Getting Started with React.js',
-    content: "Embark on your React.js journey, exploring the JavaScript library revolutionizing user interface development. This beginner-friendly guide covers React.js fundamentals and guides you in building your first React application. Understand core concepts like components, props, and state, delving into the virtual DOM, JSX syntax, and component lifecycle. Whether you're a novice or experienced developer, this guide equips you with the knowledge to kickstart your React.js journey, creating powerful, modular, and efficient web applications.",
-    user_id: 1,
-  },
-  {
-    title: 'Cybersecurity Basics: Protecting Your Online Presence',
-    content: "In an era where online security is paramount, explore fundamental cybersecurity practices to safeguard your digital presence. This comprehensive guide covers essential concepts, tools, and strategies, from understanding common attack vectors to implementing strong passwords and multi-factor authentication. Learn to recognize phishing attempts, secure network infrastructure, and maintain a resilient online presence. Whether an individual user or responsible for organizational assets, gain a solid foundation in cybersecurity basics.",
-    user_id: 2,
-  },
-  {
-    title: 'Mastering CSS Grid Layout',
-    content: "Take a deep dive into CSS Grid Layout, a powerful tool for creating responsive and flexible web layouts. This comprehensive tutorial guides you through the intricacies of CSS Grid, providing a thorough understanding of its capabilities and applications in modern web design. From defining grid containers and items to utilizing grid lines, tracks, and areas, gain hands-on experience crafting sophisticated layouts. Explore responsive design with CSS Grid, complementing other layout techniques. Whether a web designer or developer, this guide equips you to master CSS Grid Layout, enhancing your web design capabilities and staying at the forefront of modern layout trends.",
+    title: 'Debugging CSS Grid in Real-World Projects',
+    content: "Spent last week moving our dashboard to CSS Grid and found some interesting Safari quirks. Fixed auto-placement issues by switching from grid-auto-flow: dense to row with explicit gaps. Discovered that nested grids (3+ levels) were causing layout thrashing, so we flattened the structure using grid-template-areas. Implemented a mobile-first approach with CSS custom properties and clamp() for column widths, reducing layout shifts by 94%. Now exploring Container Queries - anyone using them in production yet?",
     user_id: 4,
+    createdAt: new Date('2024-02-12T14:20:00'),
+    updatedAt: new Date('2024-02-12T14:20:00')
   },
+  {
+    title: 'The Hidden Costs of Not Writing Tests',
+    content: "A production incident with our authentication flow finally pushed us to take testing seriously. Six weeks later, we've gone from 12% to 85% test coverage using Jest, React Testing Library, and Cypress. Added GitHub Actions for CI/CD, visual regression testing with Percy, and parallel test execution (CI time down from 45 to 12 minutes). Initial setup took 80 dev hours but saved us 120 hours of bug fixing in the first month. TypeScript is catching 23% of issues at compile time now. Looking into property-based testing next - anyone tried it with React?",
+    user_id: 5,
+    createdAt: new Date('2024-02-15T16:30:00'),
+    updatedAt: new Date('2024-02-15T16:30:00')
+  }
 ];
+
 
 // Define a function called seedPosts, which uses the bulkCreate method of the Post model to insert multiple posts into the database
 const seedPosts = () => Post.bulkCreate(postData);
