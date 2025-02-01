@@ -11,17 +11,23 @@
 
       <!-- Comment Form -->
       {{#if logged_in}}
-      <form id="comment-form" class="mt-4">
-        <div class="mb-3">
-          <label for="comment" class="form-label text-light">Leave a Comment:</label>
-          <textarea class="form-control bg-light" id="comment" name="comment" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Comment</button>
-      </form>
+      <div class="mt-4">
+        <h4 class="text-light mb-3">Share your thoughts!</h4>
+        <form id="comment-form">
+          <div class="mb-3">
+            <textarea class="form-control bg-light" id="comment" name="comment" rows="3"
+              placeholder="Type your comment here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+      </div>
       {{else}}
-
       <!-- Displayed when the user is not logged in -->
-      <p class="text-light mt-4">Please <a href="/login" class="text-primary">log in</a> to leave a comment.</p>
+      <div class="mt-4">
+        <h4 class="text-light mb-3">Join the conversation!</h4>
+        <p class="text-light">Sign in to share your thoughts and engage with others.</p>
+        <a href="/login" class="btn btn-primary">Sign In to Comment</a>
+      </div>
       {{/if}}
 
       <!-- Displaying the comments, the comment creator’s username, and the date created -->
@@ -31,7 +37,8 @@
         {{#each comments}}
         <li class="card comment-card">
           <p class="card-text">{{comment_text}}</p>
-          <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate this.createdAt}}</p>
+          <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate this.createdAt}}
+          </p>
         </li>
         {{/each}}
       </ul>

@@ -29,7 +29,7 @@
 body {
   background-image: 
     linear-gradient(rgba(15, 19, 23, 0.5), rgba(15, 19, 23, 0.5)), 
-    url("../images/tech3.jpg");
+    url("../images/tech3.webp");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -87,6 +87,10 @@ h1, h2 {
   padding: 1rem;
 }
 
+.row .col-sm-4, .row .col-sm-8 {
+  padding: 0;
+}
+
 @media (max-width: 768px) {
   .custom-card {
     margin-left: 0;
@@ -94,7 +98,12 @@ h1, h2 {
   }
 
   .col-md-4 {
+    padding: 0 12px;
     margin-bottom: 12px;
+  }
+
+  .row .col-md-10 {
+    padding: 0;
   }
 
   .login-main .col-lg-6 {
@@ -197,18 +206,19 @@ h1, h2 {
   justify-content: center;
   align-items: center;
   height: 85vh;
-  padding: 0 15px; /* Add side padding */
+  padding: 0 12px; /* Add side padding */
 }
 
 .login-container,
 .signup-container {
   background-color: rgba(26, 32, 37, 0.9);
   border-radius: 16px;
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   margin: 0 auto; /* Center horizontally */
+  border: 1px solid var(--border-color);
 }
 
 /* Ensure inputs are centered on smaller screens */
@@ -218,7 +228,6 @@ h1, h2 {
   margin: 0 auto;
   display: block;
 }
-
 
 
 /* Spinner */

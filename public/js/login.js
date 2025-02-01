@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/'); // Redirect to the home page on successful login
+        document.location.replace('/dashboard'); // Redirect to the dashboard page on successful login
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
@@ -55,7 +55,7 @@ const signupFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace('/'); // Redirect to the home page on successful signup
+        document.location.replace('/dashboard'); // Redirect to the dashboard page on successful signup
       } else {
         const errorMessage = await response.text(); // Get the error message from the response
         displayErrorMessage(errorMessageElement, errorMessage); // Display the error message
