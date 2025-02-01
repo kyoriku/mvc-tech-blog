@@ -19,8 +19,13 @@ router.get('/', withAuth, async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
+    // Get the user data for the welcome message
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.get({ plain: true });
+
     res.render('dashboard', {
       posts,
+      user, // Pass the entire user object
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -62,7 +67,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       return;
     }
 
-    // Assuming you have an 'edit-post' handlebars template
     res.render('edit-post', {
       post: postData.get({ plain: true }),
       logged_in: req.session.logged_in,
