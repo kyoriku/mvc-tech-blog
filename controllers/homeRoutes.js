@@ -51,6 +51,7 @@ router.get("/post/:id", async (req, res) => {
 
     res.render('post', {
       ...post,
+      user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
