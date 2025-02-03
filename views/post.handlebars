@@ -35,10 +35,23 @@
       <h2 class="mt-4 text-light">Comments</h2>
       <ul class="list-unstyled" id="comments-list">
         {{#each comments}}
-        <li class="card comment-card">
-          <p class="card-text">{{comment_text}}</p>
-          <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate this.createdAt}}
-          </p>
+        <li class="card comment-card" data-comment-id="{{id}}">
+          <div class="comment-content">
+            <p class="card-text comment-text">{{comment_text}}</p>
+            <p class="card-text text-muted-custom">{{user.username}} <span>&#8226;</span> {{formatDate this.createdAt}}
+            </p>
+            {{#if (eq this.user_id ../user_id)}}
+            <div class="comment-buttons">
+              <button class="btn btn-sm btn-secondary edit-comment-btn me-2">Edit</button>
+              <button class="btn btn-sm btn-danger delete-comment-btn">Delete</button>
+            </div>
+            {{/if}}
+          </div>
+          <div class="edit-form d-none">
+            <textarea class="form-control edit-comment-text">{{comment_text}}</textarea>
+            <button class="btn btn-sm btn-primary save-comment-btn mt-2 me-2">Save</button>
+            <button class="btn btn-sm btn-secondary cancel-edit-btn mt-2">Cancel</button>
+          </div>
         </li>
         {{/each}}
       </ul>
@@ -48,3 +61,4 @@
 </div>
 
 <script src="/js/comment.js"></script>
+<script src="/js/edit-comment.js"></script>

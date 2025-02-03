@@ -33,4 +33,6 @@ module.exports = {
     // Use the toLocaleDateString method to format both date and time according to the specified options
     return date.toLocaleDateString('en-US', options);
   },
+
+  eq: (a, b) => a === b,
 };

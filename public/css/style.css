@@ -4,6 +4,8 @@
   --secondary-bg: #1a2025;
   --accent-color: #3498db;
   --accent-hover: #2980b9;
+  --secondary-accent-color: #34495e;
+  --secondary-accent-hover: #415b76;
   --text-primary: #e6e6e6;
   --text-secondary: #a0a0a0;
   --border-color: #2c3e50;
@@ -145,7 +147,8 @@ h1, h2 {
 }
 
 /* Buttons */
-.btn-primary, 
+.btn-primary,
+.btn-secondary,
 .btn-success, 
 .btn-danger {
   border-radius: 8px;
@@ -163,6 +166,16 @@ h1, h2 {
 .btn-primary:hover {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-accent-color);
+  border-color: var(--secondary-accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-accent-hover);
+  border-color: var(--secondary-accent-hover);
 }
 
 .btn-success {
@@ -303,4 +316,8 @@ footer p {
 
 .card-text {
   margin-bottom: 0.75rem;
+}
+
+.edit-form textarea {
+  height: 86px;
 }
