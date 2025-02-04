@@ -1,8 +1,12 @@
+/**
+* Post management routes handling creation, updates, and deletion
+* of posts with user authentication
+*/
 const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a post
+// Create new post for authenticated user
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -16,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Update a post
+// Update existing post if user is the author
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const [updatedRows] = await Post.update(
@@ -40,7 +44,7 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
-// Delete a post
+// Delete existing post if user is the author
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const deletedRows = await Post.destroy({

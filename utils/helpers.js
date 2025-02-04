@@ -1,27 +1,28 @@
-// Export an object containing three functions related to date and time formatting
+/**
+* Helper functions for formatting dates and times in a consistent way *
+*/
 module.exports = {
-  // Function to format a date in a specific way
+  // Formats a date into a long-form string with weekday, month, day and year
   formatDate: (date) => {
-    // Formatting options
     const options = {
       weekday: 'long',
       month: 'long',
       day: 'numeric',
       year: 'numeric'
     };
-    // Use the toLocaleDateString method to format the date according to the specified options
     return date.toLocaleDateString('en-US', options);
   },
 
-  // Function to format the time of a given date
+  // Formats a time into hours and minutes
   formatTime: (date) => {
-    // Use the toLocaleTimeString method to format the time with numeric hour and minute
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric'
+    });
   },
 
-  // Function to format both date and time together
+  // Formats both date and time together into a long-form string
   formatDateTime: (date) => {
-    // Formatting options
     const options = {
       weekday: 'long',
       month: 'long',
@@ -30,9 +31,9 @@ module.exports = {
       hour: 'numeric',
       minute: 'numeric',
     };
-    // Use the toLocaleDateString method to format both date and time according to the specified options
     return date.toLocaleDateString('en-US', options);
   },
 
+  // Simple equality comparison helper
   eq: (a, b) => a === b,
 };

@@ -1,8 +1,12 @@
+/**
+* Dashboard routes handling user-specific content management including
+* viewing, creating, and editing posts
+*/
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Get all posts for dashboard
+// Display user's posts and profile information in dashboard
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -18,14 +22,12 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-
-    // Get the user data for the welcome message
     const userData = await User.findByPk(req.session.user_id);
     const user = userData.get({ plain: true });
 
     res.render('dashboard', {
       posts,
-      user, // Pass the entire user object
+      user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -33,14 +35,14 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// Render the form to create a new post
+// Show new post creation form
 router.get('/new-post', withAuth, (req, res) => {
   res.render('new-post', {
     logged_in: req.session.logged_in,
   });
 });
 
-// Handle the creation of a new post
+// Handle new post creation
 router.post('/new-post', withAuth, async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -57,7 +59,7 @@ router.post('/new-post', withAuth, async (req, res) => {
   }
 });
 
-// Render the edit form for a specific post
+// Show edit form for existing post
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
