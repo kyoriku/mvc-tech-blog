@@ -1,11 +1,17 @@
-const router = require('express').Router(); // Import the 'Router' module from the 'express' library
+/**
+* Main router configuration that combines all route modules and
+* sets up their respective path prefixes
+*/
+const router = require('express').Router();
 
-const apiRoutes = require('./api'); // Import the routes defined in the 'api' directory
-const homeRoutes = require('./homeRoutes'); // Import the routes defined in the 'homeRoutes.js' file
-const dashboardRoutes = require('./dashboardRoutes'); // Import the routes defined in the 'dashboardRoutes.js' file
+// Import route modules
+const apiRoutes = require('./api');
+const homeRoutes = require('./homeRoutes');
+const dashboardRoutes = require('./dashboardRoutes');
 
-router.use('/', homeRoutes); // Use the routes defined in 'homeRoutes.js' for the root path '/'
-router.use('/api', apiRoutes); // Use the routes defined in the 'api' directory for paths starting with '/api'
-router.use('/dashboard', dashboardRoutes); // Use the routes defined in 'dashboardRoutes.js' for paths starting with '/dashboard'
+// Set up route prefixes
+router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
+router.use('/dashboard', dashboardRoutes);
 
-module.exports = router; // Export the configured router so it can be used by other parts of the application
+module.exports = router;

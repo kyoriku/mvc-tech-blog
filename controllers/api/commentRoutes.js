@@ -1,8 +1,12 @@
+/**
+* Comment management routes handling creation, updates, and deletion
+* of comments with user authentication
+*/
 const router = require('express').Router();
-const { Comment } = require('../../models'); // Adjust the path to your Comment model
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Create a comment on a post
+// Create new comment for authenticated user
 router.post('/', withAuth, async (req, res) => {
   try {
     const createdComment = await Comment.create({
@@ -18,27 +22,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// Delete a comment on a post
-router.delete('/:id', withAuth, async (req, res) => {
-  const commentId = parseInt(req.params.id);
-
-  try {
-    const deletedComment = await Comment.findByPk(commentId);
-
-    if (!deletedComment) {
-      res.status(404).json({ error: 'Comment not found' });
-      return;
-    }
-
-    await deletedComment.destroy();
-
-    res.status(200).json({ message: 'Comment deleted successfully!' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
+// Update existing comment if user is the author
 router.put('/:id', withAuth, async (req, res) => {
   const commentId = parseInt(req.params.id);
 
@@ -54,6 +38,27 @@ router.put('/:id', withAuth, async (req, res) => {
     await updatedComment.save();
 
     res.status(200).json({ message: 'Comment updated successfully!' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Delete existing comment if user is the author
+router.delete('/:id', withAuth, async (req, res) => {
+  const commentId = parseInt(req.params.id);
+
+  try {
+    const deletedComment = await Comment.findByPk(commentId);
+
+    if (!deletedComment) {
+      res.status(404).json({ error: 'Comment not found' });
+      return;
+    }
+
+    await deletedComment.destroy();
+
+    res.status(200).json({ message: 'Comment deleted successfully!' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });

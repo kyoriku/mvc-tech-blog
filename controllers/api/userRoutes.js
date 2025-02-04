@@ -1,7 +1,11 @@
+/**
+* User authentication routes handling registration, login, and logout
+* functionality with session management
+*/
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Route for user registration
+// Handle new user registration
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -9,8 +13,6 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
-      // res.status(200).json(userData);
       res.redirect('/');
     });
   } catch (err) {
@@ -18,7 +20,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Route for user login
+// Handle user login with credential verification
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -42,8 +44,6 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
-      // res.json({ user: userData, message: 'You are now logged in!' });
       res.redirect('/');
     });
 
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Route for user logout
+// Handle user logout and session cleanup
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

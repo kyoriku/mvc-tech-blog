@@ -1,7 +1,8 @@
-// Import the User model from the specified path
+/**
+* Seed data for creating initial user accounts in the database
+*/
 const { User } = require('../models');
 
-// Define an array of user data, each object representing a user with a username, email, and password
 const userData = [
   {
     username: 'sarah.codes',
@@ -30,9 +31,7 @@ const userData = [
   }
 ];
 
-// Define a function called seedUsers, which uses the bulkCreate method of the User model to insert multiple users into the database
-// The { individualHooks: true } option is provided to trigger any individual hooks associated with the model during the creation process
+// Bulk create users with password hashing hooks
 const seedUsers = () => User.bulkCreate(userData, { individualHooks: true });
 
-// Export the seedUsers function to be used in the database seed script: 'seed.js'
 module.exports = seedUsers;

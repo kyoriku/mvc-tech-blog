@@ -1,8 +1,11 @@
+/**
+* Home routes handling the public-facing pages including homepage,
+* individual post views, and login functionality
+*/
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 
-// Route for homepage
+// Render homepage with all posts and their authors
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -15,7 +18,6 @@ router.get('/', async (req, res) => {
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    // res.status(200).json(posts); // For Insomnia testing purposes
 
     res.render('homepage', {
       posts,
@@ -26,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Route for individual posts page
+// Render individual post page with comments and author details  
 router.get("/post/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -47,7 +49,6 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    // res.status(200).json(post); // For Insomnia testing purposes
 
     res.render('post', {
       ...post,
@@ -59,7 +60,7 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
-// Route for user login
+// Handle login page access with redirect for logged in users
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
