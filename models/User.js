@@ -1,54 +1,49 @@
-// Importing necessary parts (Model, DataTypes) from the 'sequelize' library
+/**
+* User model defining the structure and behavior of user accounts
+* including password hashing functionality
+*/
 const { Model, DataTypes } = require('sequelize');
-// Importing the bcrypt library for password hashing
 const bcrypt = require('bcrypt');
-// Importing the database connection from 'connection.js'
 const sequelize = require('../config/connection');
 
-// Creating a User class that extends the sequelize Model class
 class User extends Model {
-  // Method to check if the provided password matches the stored hashed password
+  // Verify password against hashed version
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-// Initializing the User model with the specified column definitions and rules
 User.init(
   {
-    // Column definition for 'id'
     id: {
-      type: DataTypes.INTEGER, // Specify the data type of the 'id' column as INTEGER
-      allowNull: false, // Ensure that the 'id' column cannot have a NULL value, making it a required field
-      primaryKey: true, // Designate the 'id' column as the primary key for the table
-      autoIncrement: true, // Enable auto-increment for the 'id' column, ensuring unique and sequential values
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    // Column definition for 'username'
     username: {
-      type: DataTypes.STRING, // Specify the data type of the 'username' column as STRING
-      allowNull: false, // Ensure that the 'username' column cannot have a NULL value, making it a required field
-      unique: true, // Ensure that each 'username' is unique
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
-    // Column definition for 'email'
     email: {
-      type: DataTypes.STRING, // Specify the data type of the 'email' column as STRING
-      allowNull: false, // Ensure that the 'email' column cannot have a NULL value, making it a required field
-      unique: true, // Ensure that each 'email' is unique
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
       validate: {
-        isEmail: true, // Validation rule to ensure 'email' is a valid email address
+        isEmail: true,
       },
     },
-    // Column definition for 'password'
     password: {
-      type: DataTypes.STRING, // Specify the data type of the 'password' column as STRING
-      allowNull: false, // Ensure that the 'password' column cannot have a NULL value, making it a required field
+      type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        len: [8], // Validation rule to ensure 'password' has a minimum length of 8 characters
+        len: [8],
       },
     },
   },
   {
-    // Hooks to hash the password before creating or updating a user
+    // Hash password before user creation or updates
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 12);
@@ -59,13 +54,12 @@ User.init(
         return updatedUserData;
       },
     },
-    sequelize, // Providing the sequelize connection instance
-    timestamps: false, // Disabling timestamps (created_at and updated_at columns)
-    freezeTableName: true, // Setting the table name to be the same as the model name
-    underscored: true, // Using underscores instead of camelCase for automatically added attributes
-    modelName: 'user', // Setting the model name to 'user'
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
   }
 );
 
-// Exporting the User model for use in other parts of the application
 module.exports = User;
